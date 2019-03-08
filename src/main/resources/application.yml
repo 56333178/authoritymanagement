@@ -1,0 +1,57 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: authorityManagement
+  security:
+    user:
+      name: root
+      password: 123456
+  datasource:
+    password: 1qaz!QAZ
+    username: root
+    data-username: root
+    data-password: 1qaz!QAZ
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://aitieta.com:3306/yyh?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&useSSL=true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@aitieta.com:8888/eureka/,http://root:123456@aitieta.com:8887/eureka/
+  instance:
+      prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 4000
+        readTimeout: 4000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+mybatis:
+  mapper-locations: classpath:mapping/*.xml  #classpath就是应用程序resources的路径
+  type-aliases-package: com.yyh.authoritymanagement.bean
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#pagehelper分页插件配置
+#pageheler参数合理化，默认为false。
+#启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页;
+#禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据。
+pagehelper:
+  helper-dialect: mysql
+  support-methods-arguments: true
+  params: count=countSql
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-store-password: 56333178s
+#  reasonable: true
+#  page-size-zero: false
