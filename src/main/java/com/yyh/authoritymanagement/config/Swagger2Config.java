@@ -2,6 +2,8 @@ package com.yyh.authoritymanagement.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -11,29 +13,40 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 @EnableSwagger2
-public class Swagger2Config {
+public class Swagger2Config implements WebMvcConfigurer{
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
     @Bean
     public Docket api() {
+
         return new Docket(DocumentationType.SWAGGER_2)
-          .apiInfo(apiInfo())
-          .select()
-          // 自行修改为自己的包路径
-          .apis(RequestHandlerSelectors.basePackage("com.ysk.mybatiscrack"))
-          .paths(PathSelectors.any())
-          .build();
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.yyh.authoritymanagement.controller"))
+                .paths(PathSelectors.any())
+                .build();
+
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-          .title("swagger-api文档")
-          .description("swagger接入教程")
-          //服务条款网址
-          .termsOfServiceUrl("https://blog.csdn.net/ysk_xh_521")
-          .version("1.0")
-          .contact(new Contact("Y.S.K", "http://ysk521.cn", "1176971130@qq.com"))
-          .build();
+                .title("swagger-api文档")
+                .description("swagger接入教程")
+                //服务条款网址
+                .termsOfServiceUrl("https://blog.csdn.net/ysk_xh_521")
+                .version("1.0")
+                .contact(new Contact("yyh", "http://aitieta.com", "56333178@qq.com"))
+                .build();
     }
 
 }

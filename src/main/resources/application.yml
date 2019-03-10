@@ -52,6 +52,6 @@ security:
   oauth2:
     resource:
       jwt:
-        key-store-password: 56333178s
+        key-store-password: 56333178
 #  reasonable: true
 #  page-size-zero: false

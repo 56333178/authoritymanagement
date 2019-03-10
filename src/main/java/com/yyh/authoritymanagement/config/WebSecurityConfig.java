@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/img/**",
                 "/login/**","/user/register","/yzm","/hello"*/
 
-                "/user/login").permitAll()
+                "/user/**").permitAll()
                 .anyRequest().authenticated().accessDecisionManager(accessDecisionManager)
                 .and().formLogin().loginProcessingUrl("/login").successForwardUrl("/hello")/*.failureForwardUrl("/login")*/.permitAll().and()
                 .cors().and().rememberMe().rememberMeCookieName("workspace").rememberMeParameter("remember-me").and().headers().cacheControl();;
