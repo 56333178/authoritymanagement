@@ -1,14 +1,12 @@
 package com.yyh.authoritymanagement;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.yyh.authoritymanagement.bean.*;
+import com.yyh.authoritymanagement.beans.*;
 import com.yyh.authoritymanagement.dao.PermissionMapper;
 import com.yyh.authoritymanagement.dao.RoleMapper;
 import com.yyh.authoritymanagement.dao.UserMapper;
 import com.yyh.authoritymanagement.dao.UserRoleLinkMapper;
-import com.yyh.authoritymanagement.util.SMSUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

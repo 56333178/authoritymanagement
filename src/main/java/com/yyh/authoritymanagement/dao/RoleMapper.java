@@ -1,7 +1,7 @@
 package com.yyh.authoritymanagement.dao;
 
-import com.yyh.authoritymanagement.bean.Role;
-import com.yyh.authoritymanagement.bean.RoleExample;
+import com.yyh.authoritymanagement.beans.Role;
+import com.yyh.authoritymanagement.beans.RoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

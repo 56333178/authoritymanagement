@@ -1,4 +1,4 @@
-package com.yyh.authoritymanagement.bean;
+package com.yyh.authoritymanagement.beans;
 
 import java.util.Date;
 

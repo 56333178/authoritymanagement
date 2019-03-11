@@ -1,7 +1,7 @@
 package com.yyh.authoritymanagement.dao;
 
-import com.yyh.authoritymanagement.bean.RolePermissionLink;
-import com.yyh.authoritymanagement.bean.RolePermissionLinkExample;
+import com.yyh.authoritymanagement.beans.RolePermissionLink;
+import com.yyh.authoritymanagement.beans.RolePermissionLinkExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

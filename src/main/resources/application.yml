@@ -37,7 +37,7 @@ hystrix:
             timeoutInMilliseconds: 4000
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #classpath就是应用程序resources的路径
-  type-aliases-package: com.yyh.authoritymanagement.bean
+  type-aliases-package: com.yyh.authoritymanagement.beans
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #pagehelper分页插件配置

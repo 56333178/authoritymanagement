@@ -1,6 +1,6 @@
 package com.yyh.authoritymanagement.service;
 
-import com.yyh.authoritymanagement.bean.User;
+import com.yyh.authoritymanagement.beans.User;
 
 public interface UserService {
     User getInfo(String username);

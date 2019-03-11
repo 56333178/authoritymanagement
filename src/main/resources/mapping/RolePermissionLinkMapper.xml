@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yyh.authoritymanagement.dao.RolePermissionLinkMapper">
-  <resultMap id="BaseResultMap" type="com.yyh.authoritymanagement.bean.RolePermissionLink">
+  <resultMap id="BaseResultMap" type="com.yyh.authoritymanagement.beans.RolePermissionLink">
     <id column="roleId" jdbcType="INTEGER" property="roleid" />
     <id column="permissionId" jdbcType="INTEGER" property="permissionid" />
     <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     roleId, permissionId, updateTime
   </sql>
-  <select id="selectByExample" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLinkExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLinkExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     where roleId = #{roleid,jdbcType=INTEGER}
       and permissionId = #{permissionid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLinkExample">
+  <delete id="deleteByExample" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLinkExample">
     delete from tb_role_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLink">
+  <insert id="insert" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLink">
     insert into tb_role_permission (roleId, permissionId, updateTime
       )
     values (#{roleid,jdbcType=INTEGER}, #{permissionid,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLink">
+  <insert id="insertSelective" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLink">
     insert into tb_role_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="roleid != null">
@@ -130,7 +130,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLinkExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLinkExample" resultType="java.lang.Long">
     select count(*) from tb_role_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -162,7 +162,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLink">
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLink">
     update tb_role_permission
     <set>
       <if test="updatetime != null">
@@ -172,7 +172,7 @@
     where roleId = #{roleid,jdbcType=INTEGER}
       and permissionId = #{permissionid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yyh.authoritymanagement.bean.RolePermissionLink">
+  <update id="updateByPrimaryKey" parameterType="com.yyh.authoritymanagement.beans.RolePermissionLink">
     update tb_role_permission
     set updateTime = #{updatetime,jdbcType=TIMESTAMP}
     where roleId = #{roleid,jdbcType=INTEGER}

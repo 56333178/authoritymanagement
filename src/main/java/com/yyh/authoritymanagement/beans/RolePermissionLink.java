@@ -1,21 +1,13 @@
-package com.yyh.authoritymanagement.bean;
+package com.yyh.authoritymanagement.beans;
 
 import java.util.Date;
 
-public class UserRoleLink {
-    private String username;
-
+public class RolePermissionLink {
     private Integer roleid;
 
+    private Integer permissionid;
+
     private Date updatetime=new Date();
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
 
     public Integer getRoleid() {
         return roleid;
@@ -23,6 +15,14 @@ public class UserRoleLink {
 
     public void setRoleid(Integer roleid) {
         this.roleid = roleid;
+    }
+
+    public Integer getPermissionid() {
+        return permissionid;
+    }
+
+    public void setPermissionid(Integer permissionid) {
+        this.permissionid = permissionid;
     }
 
     public Date getUpdatetime() {

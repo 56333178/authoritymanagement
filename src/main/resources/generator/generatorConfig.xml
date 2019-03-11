@@ -23,7 +23,7 @@
         </javaTypeResolver>
         <plugin type=""
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.yyh.authoritymanagement.bean" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.yyh.authoritymanagement.beans" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>

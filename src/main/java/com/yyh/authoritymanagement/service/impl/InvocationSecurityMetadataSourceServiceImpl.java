@@ -1,7 +1,7 @@
 package com.yyh.authoritymanagement.service.impl;
 
-import com.yyh.authoritymanagement.bean.Permission;
-import com.yyh.authoritymanagement.bean.PermissionExample;
+import com.yyh.authoritymanagement.beans.Permission;
+import com.yyh.authoritymanagement.beans.PermissionExample;
 import com.yyh.authoritymanagement.dao.PermissionMapper;
 import com.yyh.authoritymanagement.util.UrlMatcherUtil;
 import org.springframework.beans.factory.annotation.Autowired;

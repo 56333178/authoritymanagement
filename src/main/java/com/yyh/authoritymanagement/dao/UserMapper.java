@@ -1,6 +1,6 @@
 package com.yyh.authoritymanagement.dao;
 
-import com.yyh.authoritymanagement.bean.User;
+import com.yyh.authoritymanagement.beans.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(String username);

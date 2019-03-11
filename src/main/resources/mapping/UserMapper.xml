@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yyh.authoritymanagement.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.yyh.authoritymanagement.bean.User">
+  <resultMap id="BaseResultMap" type="com.yyh.authoritymanagement.beans.User">
     <id column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="mobilePhone" jdbcType="VARCHAR" property="mobilephone" />
@@ -11,12 +11,12 @@
     <result column="realName" jdbcType="VARCHAR" property="realname" />
     <result column="sex" jdbcType="BIT" property="sex" />
     <result column="nikename" jdbcType="VARCHAR" property="nikename" />
-    <collection property="permissions"  ofType="com.yyh.authoritymanagement.bean.Permission" column="username" select="selectPermissionsByUsername">
+    <collection property="permissions" ofType="com.yyh.authoritymanagement.beans.Permission" column="username" select="selectPermissionsByUsername">
     </collection>
-    <collection property="roles" ofType="com.yyh.authoritymanagement.bean.Role" column="username" select="selectRolesByUsername">
+    <collection property="roles" ofType="com.yyh.authoritymanagement.beans.Role" column="username" select="selectRolesByUsername">
     </collection>
   </resultMap>
-  <resultMap id="SimpleResultMap" type="com.yyh.authoritymanagement.bean.User">
+  <resultMap id="SimpleResultMap" type="com.yyh.authoritymanagement.beans.User">
     <id column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="mobilePhone" jdbcType="VARCHAR" property="mobilephone" />
@@ -30,12 +30,12 @@
   <sql id="Base_Column_List">
     username, password, mobilePhone, email, idCard, birthday, realName, sex, nikename
   </sql>
-  <select id="selectPermissionsByUsername" parameterType="java.lang.String" resultType="com.yyh.authoritymanagement.bean.Permission">
+  <select id="selectPermissionsByUsername" parameterType="java.lang.String" resultType="com.yyh.authoritymanagement.beans.Permission">
     SELECT <include refid="com.yyh.authoritymanagement.dao.PermissionMapper.Base_Column_List"/>
     from tb_Permission p
     where p.id in (select permissionId from tb_user_permission up where up.username=#{username,jdbcType=VARCHAR});
   </select>
-  <select id="selectRolesByUsername" parameterType="java.lang.String" resultType="com.yyh.authoritymanagement.bean.Role">
+  <select id="selectRolesByUsername" parameterType="java.lang.String" resultType="com.yyh.authoritymanagement.beans.Role">
     SELECT <include refid="com.yyh.authoritymanagement.dao.RoleMapper.Base_Column_List"/>
     from tb_role r
     where r.id in (select roleId from tb_user_role ur where ur.username=#{username,jdbcType=VARCHAR});
@@ -50,7 +50,7 @@
     delete from tb_user
     where username = #{username,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.yyh.authoritymanagement.bean.User">
+  <insert id="insert" parameterType="com.yyh.authoritymanagement.beans.User">
     insert into tb_user (username, password, mobilePhone, 
       email, idCard, birthday, 
       realName, sex, nikename
@@ -60,7 +60,7 @@
       #{realname,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, #{nikename,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.yyh.authoritymanagement.bean.User">
+  <insert id="insertSelective" parameterType="com.yyh.authoritymanagement.beans.User">
     insert into tb_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="username != null">
@@ -121,7 +121,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yyh.authoritymanagement.bean.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyh.authoritymanagement.beans.User">
     update tb_user
     <set>
       <if test="password != null">
@@ -151,7 +151,7 @@
     </set>
     where username = #{username,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yyh.authoritymanagement.bean.User">
+  <update id="updateByPrimaryKey" parameterType="com.yyh.authoritymanagement.beans.User">
     update tb_user
     set password = #{password,jdbcType=VARCHAR},
       mobilePhone = #{mobilephone,jdbcType=VARCHAR},

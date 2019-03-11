@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yyh.authoritymanagement.dao.PermissionMapper">
-  <resultMap id="BaseResultMap" type="com.yyh.authoritymanagement.bean.Permission">
+  <resultMap id="BaseResultMap" type="com.yyh.authoritymanagement.beans.Permission">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="pid" jdbcType="VARCHAR" property="pid" />
-    <collection property="roles"  column="id" ofType="com.yyh.authoritymanagement.bean.Role">
+    <collection property="roles"  column="id" ofType="com.yyh.authoritymanagement.beans.Role">
     </collection>
-    <collection property="users"  column="id" ofType="com.yyh.authoritymanagement.bean.User">
+    <collection property="users"  column="id" ofType="com.yyh.authoritymanagement.beans.User">
     </collection>
   </resultMap>
-  <resultMap id="SimpleResultMap" type="com.yyh.authoritymanagement.bean.Permission">
+  <resultMap id="SimpleResultMap" type="com.yyh.authoritymanagement.beans.Permission">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -90,7 +90,7 @@
   <sql id="Base_Column_List">
     id, name, description, url, pid
   </sql>
-  <select id="selectByExample" parameterType="com.yyh.authoritymanagement.bean.PermissionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.yyh.authoritymanagement.beans.PermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -114,13 +114,13 @@
     delete from tb_permission
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.yyh.authoritymanagement.bean.PermissionExample">
+  <delete id="deleteByExample" parameterType="com.yyh.authoritymanagement.beans.PermissionExample">
     delete from tb_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.yyh.authoritymanagement.bean.Permission">
+  <insert id="insert" parameterType="com.yyh.authoritymanagement.beans.Permission">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -129,7 +129,7 @@
     values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
       #{pid,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.yyh.authoritymanagement.bean.Permission">
+  <insert id="insertSelective" parameterType="com.yyh.authoritymanagement.beans.Permission">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -163,7 +163,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.yyh.authoritymanagement.bean.PermissionExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.yyh.authoritymanagement.beans.PermissionExample" resultType="java.lang.Long">
     select count(*) from tb_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -203,7 +203,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yyh.authoritymanagement.bean.Permission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyh.authoritymanagement.beans.Permission">
     update tb_permission
     <set>
       <if test="name != null">
@@ -221,7 +221,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yyh.authoritymanagement.bean.Permission">
+  <update id="updateByPrimaryKey" parameterType="com.yyh.authoritymanagement.beans.Permission">
     update tb_permission
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},

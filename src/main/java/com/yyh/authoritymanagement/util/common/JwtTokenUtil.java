@@ -1,12 +1,9 @@
 package com.yyh.authoritymanagement.util.common;
 
-import com.yyh.authoritymanagement.bean.User;
+import com.yyh.authoritymanagement.beans.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import java.io.Serializable;

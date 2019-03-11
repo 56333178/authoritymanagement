@@ -1,9 +1,7 @@
 package com.yyh.authoritymanagement.service.impl;
 
-import com.yyh.authoritymanagement.bean.Role;
-import com.yyh.authoritymanagement.bean.RoleExample;
-import com.yyh.authoritymanagement.bean.User;
-import com.yyh.authoritymanagement.bean.UserRoleLink;
+import com.yyh.authoritymanagement.beans.User;
+import com.yyh.authoritymanagement.beans.UserRoleLink;
 import com.yyh.authoritymanagement.dao.RoleMapper;
 import com.yyh.authoritymanagement.dao.UserMapper;
 import com.yyh.authoritymanagement.dao.UserRoleLinkMapper;
@@ -18,9 +16,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
