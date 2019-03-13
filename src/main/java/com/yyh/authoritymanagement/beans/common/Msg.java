@@ -46,7 +46,6 @@ public enum Msg {
 
   THIRD_PARTY_AUTH_ERR("第三方授权错误", 204002);
 
-
   private Integer code;
   private String  msg;
 
