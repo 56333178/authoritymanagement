@@ -7,7 +7,22 @@ spring:
     user:
       name: root
       password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
   datasource:
+    primary:
+      username: root
+      password: 1qaz!QAZ
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://aitieta.com:3306/yyh?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    secondary:
+      username: root
+      password: 1qaz!QAZ
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://aitieta.com:3306/yyh?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&useSSL=true
     password: 1qaz!QAZ
     username: root
     data-username: root
@@ -19,7 +34,7 @@ eureka:
     service-url:
       defaultZone: http://root:123456@aitieta.com:8888/eureka/,http://root:123456@aitieta.com:8887/eureka/
   instance:
-      prefer-ip-address: true
+    prefer-ip-address: true
 feign:
   hystrix:
     enabled: true
@@ -44,10 +59,10 @@ mybatis:
 #pageheler参数合理化，默认为false。
 #启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页;
 #禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据。
-pagehelper:
-  helper-dialect: mysql
-  support-methods-arguments: true
-  params: count=countSql
+#pagehelper:
+#  helper-dialect: mysql
+#  support-methods-arguments: true
+#  params: count=countSql
 security:
   oauth2:
     resource:

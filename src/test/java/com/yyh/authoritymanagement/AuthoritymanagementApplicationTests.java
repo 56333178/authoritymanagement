@@ -1,7 +1,7 @@
 package com.yyh.authoritymanagement;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+//import com.github.pagehelper.PageHelper;
+//import com.github.pagehelper.PageInfo;
 import com.yyh.authoritymanagement.beans.*;
 import com.yyh.authoritymanagement.dao.PermissionMapper;
 import com.yyh.authoritymanagement.dao.RoleMapper;
@@ -56,9 +56,9 @@ public class AuthoritymanagementApplicationTests {
 //		userRoleLink.setUsername(user.getUsername());
 //		userRoleLinkMapper.insert(userRoleLink);
 //		SMSUtil.sendMessage("18951729400");
-		PageHelper.startPage(2,1);
-		List<Role> roles=roleMapper.selectByExample(new RoleExample());
-		PageInfo<Role> pageInfo=new PageInfo<>(roles);
+//		PageHelper.startPage(2,1);
+//		List<Role> roles=roleMapper.selectByExample(new RoleExample());
+//		PageInfo<Role> pageInfo=new PageInfo<>(roles);
 		System.out.println();
 
 	}
